@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const tooltip = document.getElementById('tooltip');
   let verses = {};
 
-  fetch('../verses.json')
+  fetch('verses.json')
     .then(res => res.json())
     .then(data => {
       verses = data;
