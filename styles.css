@@ -137,7 +137,12 @@
   gap: 1rem;                    /* Távolság a cím és az alatta lévő szöveg között */
   font-size: 1.5rem;             /* Betűméret */
   font-weight: 500;           /* Betűvastagság */
-    color: var(--text);           /* Szöveg színe */
+  color: var(--text);           /* Szöveg színe */
+
+  max-width: 700px;      /* Szöveg maximális szélessége */
+  margin: 0 auto;        /* Középre helyezés */
+  padding-left: 1rem;    /* Némi belső tér mobilon */
+  padding-right: 1rem;
 
 }
 
