@@ -62,8 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-const burgerBtn = document.getElementById('burger');
-const navLinks = document.querySelector('.nav-links');
+
 
 const burgerBtn = document.getElementById('burger');
 const navLinks = document.querySelector('.nav-links');
