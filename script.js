@@ -68,3 +68,9 @@ const navLinks = document.querySelector('.nav-links');
 burgerBtn.addEventListener('click', () => {
   navLinks.classList.toggle('active');
 });
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('active');
+  });
+});
+
