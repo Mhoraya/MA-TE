@@ -61,3 +61,10 @@ document.addEventListener('DOMContentLoaded', () => {
       console.error('Nem sikerült betölteni a verses.json-t', err);
     });
 });
+
+const burgerBtn = document.getElementById('burger');
+const navLinks = document.querySelector('.nav-links');
+
+burgerBtn.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+});
