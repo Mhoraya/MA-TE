@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const tooltip = document.getElementById('tooltip');
   let verses = {};
 
-  fetch('verses.json')
+  fetch('../verses.json')
   .then(res => res.json())
   .then(data => {
       verses = data;
@@ -64,19 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-const burgerBtn = document.getElementById('burger');
-const navLinks = document.querySelector('.nav-links');
 
-if (burgerBtn && navLinks) {
-  burgerBtn.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-  });
 
-  navLinks.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      navLinks.classList.remove('active');
-    });
-  });
-}
 
 
