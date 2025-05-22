@@ -36,8 +36,8 @@ document.addEventListener('DOMContentLoaded', () => {
   let verses = {};
 
   fetch('verses.json')
-    .then(res => res.json())
-    .then(data => {
+  .then(res => res.json())
+  .then(data => {
       verses = data;
 
       document.querySelectorAll('.scripture').forEach(el => {
@@ -56,10 +56,10 @@ document.addEventListener('DOMContentLoaded', () => {
           tooltip.style.display = 'none';
         });
       });
-    })
-    .catch(err => {
-      console.error('Nem sikerült betölteni a verses.json-t', err);
-    });
+     })
+  .catch(err => {
+    console.error('Nem sikerült betölteni a verses.json-t', err);
+  });
 });
 
 
