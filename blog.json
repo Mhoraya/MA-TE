@@ -1,4 +1,13 @@
 [
+  
+  {
+    "series": "macs-KATT",
+    "title": "Mély levegő",
+    "desc": "Ahogy az örvényből a teljes mozdulatlanság, úgy a gondolatainkből is a csend a kiút.",
+    "img": "images/20250522.jpg",
+    "link": "blogs/20250526.html",
+    "date": "2025-05-26"
+  },
   {
     "series": "macs-KATT",
     "title": "Na ez..",
@@ -7,5 +16,6 @@
     "link": "blogs/20250522.html",
     "date": "2025-05-22"
   }
+
   
 ]
