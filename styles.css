@@ -448,3 +448,77 @@ body.dark-mode .article-image img {
   font-size: 0.95em;
 }
 
+.blog-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1.5rem 2rem;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--background);
+  font-size: 0.90rem;
+}
+
+.blog-filters label {
+  font-weight: 600;
+}
+
+.blog-filters select {
+  padding: 0.4rem 0.6rem;
+  font-size: 0.90rem;
+  border: 1px solid var(--text);
+  border-radius: 5px;
+  background-color: var(--accent);
+  color: var(--text);
+}
+
+body.dark-mode .blog-filters {
+  background-color: var(--text);
+}
+
+body.dark-mode .blog-filters select {
+  background-color: black;
+  color: #e0e0e0;
+  border-color: var(--background);
+}
+
+select,
+option,
+label {
+  font-family: 'Poppins', sans-serif;
+
+  color: #333;
+  font-size: 0.80rem;
+}
+
+select {
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: var(--background);
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  color: #333;
+  transition: border-color 0.3s;
+}
+
+select:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+  
+body.dark-mode select,
+body.dark-mode option,
+body.dark-mode label {
+  color: white;
+}
+
+body.dark-mode select {
+  background-color: #333;
+  border: 1px solid #555;
+}
+
+body.dark-mode select:focus {
+  border-color: var(--primary)
+  ;
+}

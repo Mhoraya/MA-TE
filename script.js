@@ -31,36 +31,97 @@ toggleBtn.addEventListener('click', () => {
 });
 
 
-document.addEventListener('DOMContentLoaded', () => {
-  const tooltip = document.getElementById('tooltip');
-  let verses = {};
+document.addEventListener("DOMContentLoaded", () => {
+  fetch("blog.json")
+    .then(response => response.json())
+    .then(posts => {
+      const blogGrid = document.querySelector(".blog-grid");
+      blogGrid.innerHTML = "";
 
-  fetch('../verses.json')
-  .then(res => res.json())
-  .then(data => {
-      verses = data;
+      posts.forEach(post => {
+        const card = document.createElement("article");
+        card.className = "blog-card";
+        card.setAttribute("data-date", post.date);
+        card.setAttribute("data-author", post.author);
+        card.setAttribute("data-series", post.series);
 
-      document.querySelectorAll('.scripture').forEach(el => {
-        el.addEventListener('mouseenter', () => {
-          const key = el.getAttribute('data-ref');
-          tooltip.textContent = verses[key] || 'Nincs magyarázat';
+        card.innerHTML = `
+          <img src="${post.img}" alt="${post.title}" loading="lazy">
+          ${post.series ? `<span class="blog-series">${post.series}</span>` : ""}
+          <h2>${post.title}</h2>
+          <time class="post-date" datetime="${post.date}">${post.date}</time>
+          <p>${post.desc}</p>
+          <a href="${post.link}">Olvasd tovább →</a>
+        `;
 
-          tooltip.style.display = 'block';
-
-          const rect = el.getBoundingClientRect();
-          tooltip.style.left = `${rect.left + window.scrollX}px`;
-          tooltip.style.top = `${rect.bottom + window.scrollY + 5}px`;
-        });
-
-        el.addEventListener('mouseleave', () => {
-          tooltip.style.display = 'none';
-        });
+        blogGrid.appendChild(card);
       });
-     })
-  .catch(err => {
-    console.error('Nem sikerült betölteni a verses.json-t', err);
-  });
+
+      // Szűrés csak miután minden kártya betöltődött
+      initFilters();
+    })
+    .catch(error => {
+      console.error("Nem sikerült betölteni a blogokat:", error);
+    });
 });
+
+function initFilters() {
+  const sortSelect = document.getElementById("sort");
+  const authorSelect = document.getElementById("author");
+  const seriesSelect = document.getElementById("series");
+  const blogGrid = document.querySelector(".blog-grid");
+  const blogCards = Array.from(blogGrid.querySelectorAll(".blog-card"));
+
+  const authors = new Set();
+  const seriesList = new Set();
+
+  blogCards.forEach(card => {
+    const author = card.dataset.author;
+    const series = card.dataset.series;
+    if (author) authors.add(author);
+    if (series) seriesList.add(series);
+  });
+
+  authors.forEach(author => {
+    const option = document.createElement("option");
+    option.value = author;
+    option.textContent = author;
+    authorSelect.appendChild(option);
+  });
+
+  seriesList.forEach(series => {
+    const option = document.createElement("option");
+    option.value = series;
+    option.textContent = series;
+    seriesSelect.appendChild(option);
+  });
+
+  function applyFilters() {
+    const sortOrder = sortSelect.value;
+    const selectedAuthor = authorSelect.value;
+    const selectedSeries = seriesSelect.value;
+
+    const filtered = blogCards
+      .filter(card => {
+        const authorMatch = selectedAuthor === "all" || card.dataset.author === selectedAuthor;
+        const seriesMatch = selectedSeries === "all" || card.dataset.series === selectedSeries;
+        return authorMatch && seriesMatch;
+      })
+      .sort((a, b) => {
+        const dateA = new Date(a.dataset.date);
+        const dateB = new Date(b.dataset.date);
+        return sortOrder === "date-desc" ? dateB - dateA : dateA - dateB;
+      });
+
+    blogGrid.innerHTML = "";
+    filtered.forEach(card => blogGrid.appendChild(card));
+  }
+
+  // Eseményfigyelők
+  sortSelect.addEventListener("change", applyFilters);
+  authorSelect.addEventListener("change", applyFilters);
+  seriesSelect.addEventListener("change", applyFilters);
+}
 
 
 

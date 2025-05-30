@@ -39,6 +39,28 @@
   </header>
 
  <main>
+ 
+  <section class="blog-filters">
+  <label for="sort">Rendezés:</label>
+  <select id="sort">
+    <option value="date-desc">Dátum: Legfrissebb elöl</option>
+    <option value="date-asc">Dátum: Legrégebbi elöl</option>
+  </select>
+
+  <label for="author">Író:</label>
+  <select id="author">
+    <option value="all">Összes</option>
+    <!-- JavaScript tölti fel dinamikusan -->
+  </select>
+
+  <label for="series">Téma:</label>
+  <select id="series">
+    <option value="all">Összes</option>
+    <!-- JavaScript tölti fel dinamikusan -->
+  </select>
+</section>
+
+
   <section class="blog-grid">
     <!-- A JavaScript majd ide tölti be a kártyákat -->
   </section>
@@ -58,13 +80,17 @@ document.addEventListener("DOMContentLoaded", () => {
         const card = document.createElement("article");
         card.className = "blog-card";
 
+        card.setAttribute("data-date", post.date);
+        card.setAttribute("data-author", post.author);   // ügyelj, hogy legyen ilyen adat a JSON-ban
+        card.setAttribute("data-series", post.series);     // szintén legyen a JSON-ban
+
         card.innerHTML = `
-                <img src="${post.img}" alt="${post.title}" loading="lazy">
-                ${post.series ? `<span class="blog-series">${post.series}</span>` : ""}
-                <h2>${post.title}</h2>
-                <time class="post-date" datetime="${post.date}">${post.date}</time>
-                <p>${post.desc}</p>
-                <a href="${post.link}">Olvasd tovább →</a>
+  <img src="${post.img}" alt="${post.title}" loading="lazy">
+  ${post.series ? `<span class="blog-series">${post.series}</span>` : ""}
+  <h2>${post.title}</h2>
+  <time class="post-date" datetime="${post.date}">${post.date}</time>
+  <p>${post.desc}</p>
+  <a href="${post.link}">Olvasd tovább →</a>
 `;
 
 
