@@ -30,14 +30,7 @@
   font-weight: 700;
   font-size: 1.5rem;
   text-decoration: none;
-  border: 3.5px solid var(--text); /* 2px vastag keret a fő színnel */
-  padding: 0.1rem 0.3rem;            /* kis belső tér a szöveg körül */
-  /*border-radius: 4px;             /* lekerekített sarkok */
-  box-sizing: border-box;            /* hogy a padding beleszámítson a méretbe */
-  width: 3.2rem;        /* fix szélesség */
-  height: 3.2rem;       /* fix magasság */
-  justify-content: center;
-  align-items: center;
+  
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* sima átmenet a színek között */
   
 }
@@ -130,20 +123,63 @@
   display: flex;                 /* Flexbox használata */
   flex-direction: column;        /* Fentről lefelé rendezi az elemeket */
   justify-content: center;       /* Függőleges középre igazítás */
-  align-items: center;           /* Vízszintes középre igazítás */
+ /* align-items: center;           /* Vízszintes középre igazítás */
   min-height: 50vh;              /* Minimum magasság: a viewport 70%-a */
   padding-top: 4rem;             /* Tér a tetején (a navbar alá) */
-  text-align: center;            /* Szöveg középre */
-  gap: 1rem;                    /* Távolság a cím és az alatta lévő szöveg között */
+  /*text-align: center;            /* Szöveg középre */
+  /*gap: 2rem;                    /* Távolság a cím és az alatta lévő szöveg között */
   font-size: 1.5rem;             /* Betűméret */
   font-weight: 500;           /* Betűvastagság */
   color: var(--text);           /* Szöveg színe */
 
-  max-width: 700px;      /* Szöveg maximális szélessége */
+  max-width: 850px;      /* Szöveg maximális szélessége */
   margin: 0 auto;        /* Középre helyezés */
   padding-left: 1rem;    /* Némi belső tér mobilon */
   padding-right: 1rem;
 
+}
+
+
+.hero h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.hero .pronunciation {
+  font-style: italic; 
+  color: var(--text-muted); /* halványabb szín, ha van definiálva */
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.hero p.hero-desc {
+  margin: 0;
+}
+
+.hero blockquote {
+  border-left: 4px solid var(--secondary);
+  padding-left: 1rem;
+  margin-top: 2rem;
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+/* Animáció a hero szekcióra */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero {
+  animation: fadeInUp 1s ease-out forwards;
+  opacity: 0; /* Alapból láthatatlan, amíg be nem animál */
 }
 
 
