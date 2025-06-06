@@ -12,15 +12,18 @@ window.addEventListener("load", () => {
     }, 400);
   }
 
-  // Téma betöltése localStorage-ból
-  const savedTheme = localStorage.getItem('theme');
-  const isDark = savedTheme === 'dark';
-  if (isDark) {
-    document.body.classList.add('dark-mode');
-    icon.className = 'fa-solid fa-moon';
-  } else {
-    icon.className = 'fa-solid fa-sun';
-  }
+  // Téma betöltése localStorage-ból vagy rendszerbeállításból
+const savedTheme = localStorage.getItem('theme');
+let isDark;
+
+if (savedTheme) {
+  isDark = savedTheme === 'dark';
+} else {
+  isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+}
+
+document.body.classList.toggle('dark-mode', isDark);
+icon.className = isDark ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
 });
 
 // Gombra kattintás: téma váltása + mentés
