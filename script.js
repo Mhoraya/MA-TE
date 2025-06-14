@@ -35,7 +35,7 @@ toggleBtn.addEventListener('click', () => {
 
 
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("blog.json")
+  fetch("/blog.json")
     .then(response => response.json())
     .then(posts => {
       const blogGrid = document.querySelector(".blog-grid");
