@@ -374,7 +374,7 @@ body.dark-mode .nav-links a.active {
   display: block;
   font-size: 0.8rem;
   color: #666;
-  font-weight: 600;
+  font-weight: 600; 
   margin-bottom: 0.1rem;
 
   letter-spacing: 0.5px;

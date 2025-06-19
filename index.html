@@ -18,51 +18,35 @@
 
 <body>
 
-  <div id="preloader" class="loader"></div>
-  <header>
-  <nav class="navbar">
-    <a href="index.html" class="logo">mystērion</a>
-
-</a>
-
-    <ul class="nav-links">
-      <li><a href="bemutatkozas.html">Küldetésünk</a></li>
-      <li><a href="blog.html">Blog</a></li>
-      <li><a href="#videok">Videók</a></li>
-      <li><a href="#kapcsolat">Kapcsolat</a></li>
-    </ul>
-
-    
-     <button id="theme-toggle" aria-label="Váltás világos/sötét mód között">
-  <i class="fa-solid fa-sun"></i>
-</button>
+  <!-- Preloader -->
+  <!-- A preloader animáció megjelenítéséhez szükséges stílusok -->
+  <div id="preloader" class="loader"></div>     
+  <!-- Header -->
+  <!-- A fejléc tartalmának betöltése -->
+  <div data-include="partials/header.html"></div> 
 
 
-  </nav>
-</header>
-
-    <main>
-      
+  <main>
     <section class="hero mystērion-hero">
-  <h1>Mystērion <span class="greek">(μυστήριον)</span></h1>
-  <p class="pronunciation">/mys·tēʹ·ri·on/ &nbsp; | &nbsp; többes szám: <em>mystēria</em></p>
+      <h1>Mystērion <span class="greek">(μυστήριον)</span></h1>
+      <p class="pronunciation">/mys·tēʹ·ri·on/ &nbsp; | &nbsp; többes szám: <em>mystēria</em></p>
 
 
 
-  <p class="hero-desc">
-   (1.) Isten rejtett szándéka az emberi életre, ami túlmutat a láthatón,<br>
-    de hatással van a mindennapokra.
-  </p>
+      <p class="hero-desc">
+        (1.) Isten rejtett szándéka az emberi életre, ami túlmutat a láthatón,<br>
+        de hatással van a mindennapokra.
+      </p>
 
 
-  <blockquote>
-    „…hogy kijelentés által ismertette meg velem a titkot (μυστήριον), amint előbb már röviden megírtam.”<br>
-    <span class="verse">— Efézus 3:3</span>
-  </blockquote>
-</section>
-
-
+      <blockquote>
+        „…hogy kijelentés által ismertette meg velem a titkot (μυστήριον), amint előbb már röviden megírtam.”<br>
+        <span class="verse">— Efézus 3:3</span>
+      </blockquote>
+    </section>
   </main>
+
+  <script src="scripts/include.js"></script>
   <script src="script.js"></script>
 </body>
 
