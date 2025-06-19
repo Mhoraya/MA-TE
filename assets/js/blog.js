@@ -1,11 +1,11 @@
 // Blog oldal JavaScript
 const posts = [
   {
-    title: "A hit paradoxonja",
+    title: "Többé nem ural minket a bűn",
     date: "2025-06-17",
     author: "Fodor Szabi",
     series: "Bátorítás",
-    content: "Többé nem ural minket a bűn..",
+    content: "De akkor miért vétkezek továbbra is? Miért tud akkora erővel támadni engem a bűn?",
     image: "assets/images/20250617.jpg",
     link: "posts/20250617.html"
   },
