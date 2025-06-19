@@ -1,0 +1,189 @@
+/* Színváltozók */
+:root {
+  --text: #0a1314;
+  --background: #faf9f6;
+  --primary: #27c5ce;
+  --secondary: #8fd7db;
+  --accent: #ffffff;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--background);
+  color: var(--text);
+  margin: 0;
+  padding: 0;
+  
+}
+
+select, option {
+  font-family: 'Poppins', sans-serif;
+}
+
+
+/* --- Szűrők --- */
+.blog-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1.5rem 2rem;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--background);
+  font-size: 0.90rem;
+}
+
+.blog-filters label {
+  font-weight: 600;
+  margin-right: 0.5rem;
+}
+
+.blog-filters select {
+  padding: 0.4rem 0.6rem;
+  font-size: 0.90rem;
+  border: 1px solid var(--text);
+  border-radius: 5px;
+  background-color: var(--accent);
+  color: var(--text);
+  
+}
+
+/* --- Blog bejegyzések --- */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 350px));
+  gap: 2rem;
+  padding: 2rem;
+  justify-content: center;
+}
+
+/* Blog kártya */
+.blog-card {
+  background-color: white;
+  border: 2px solid var(--text);
+  /*border-radius: 1rem;  /* lekerekített sarkok */
+  padding: 1.5rem;  /* belső tér */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+}
+
+.blog-card img {
+  max-width: 100%;  /* ne legyen nagyobb, mint a kártya szélessége */
+  height: auto;     /* megtartja az arányokat */
+  max-height: 150px; /* max magasság, de nem vág le */
+  border-radius: 0.75rem;
+  margin-bottom: 1rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+
+.blog-card h3 {
+  font-size: 1.2rem;
+  margin: 0.2rem 0;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+.blog-series {
+  display: block;
+  font-size: 0.8rem;
+  color: #666;
+  font-weight: 600;
+  margin-bottom: 0.1rem;
+
+  letter-spacing: 0.5px;
+}
+
+
+.blog-card .meta {
+  font-size: 0.85rem;
+  color: var(--secondary);
+  margin-bottom: 0.8rem;
+}
+
+.blog-card p {
+  margin: 0.5rem 0 0;
+  font-size: 0.95rem;
+  color: var(--text);
+  
+}
+
+.post-date {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text);
+  opacity: 0.5;
+  margin-top: -0.5rem;
+  margin-bottom: 0.75rem;
+  font-style: italic;
+}
+
+.blog-card p {
+  color: var(--text);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.read-more {
+  margin-top: auto;
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.read-more:hover {
+  text-decoration: underline;
+  color: var(--secondary);
+}
+
+.blog-card a:hover {
+  text-decoration: underline;
+}
+
+body.dark-mode .blog-card {
+  background-color: black; /* vagy var(--text), ha sötétebb */
+  border-color: var(--background);
+}
+
+body.dark-mode .blog-card h3,
+body.dark-mode .blog-card p {
+  color: #e0e0e0;
+}
+
+body.dark-mode .blog-card a {
+  color: var(--secondary);
+}
+
+body.dark-mode .blog-card-image {
+  filter: invert(1);
+}
+
+body.dark-mode .post-date {
+  color: #ccc;
+  opacity: 0.6;
+}
+
+body.dark-mode .article-content {
+  background-color: black;
+  color: #e0e0e0;
+  box-shadow: 0 4px 15px var(--secondary);
+}
+
+body.dark-mode .blog-filters {
+  background-color: var(--text);
+}
+
+body.dark-mode .blog-filters select {
+  background-color: black;
+  color: #e0e0e0;
+  border-color: var(--background);
+}

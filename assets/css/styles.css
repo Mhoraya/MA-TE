@@ -1,0 +1,137 @@
+/* Színváltozók */
+:root {
+  --text: #0a1314;
+  --background: #faf9f6;
+  --primary: #27c5ce;
+  --secondary: #8fd7db;
+  --accent: #ffffff;
+}
+
+/* Font*/
+body {
+  font-family: 'Poppins', sans-serif;
+  color: var(--text);
+  background-color: var(--background);
+  margin: 0;
+  padding: 0;
+}
+
+/* Preloader teljes képernyős pozicionálása és elrejtése */
+#preloader {
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  background-color: var(--background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.4s ease;
+}
+
+/* Elrejtés animációval */
+#preloader.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.hero {
+  display: flex;                 /* Flexbox használata */
+  flex-direction: column;        /* Fentről lefelé rendezi az elemeket */
+  justify-content: center;       /* Függőleges középre igazítás */
+ /* align-items: center;           /* Vízszintes középre igazítás */
+  min-height: 50vh;              /* Minimum magasság: a viewport 70%-a */
+  padding-top: 4rem;             /* Tér a tetején (a navbar alá) */
+  /*text-align: center;            /* Szöveg középre */
+  /*gap: 2rem;                    /* Távolság a cím és az alatta lévő szöveg között */
+  font-size: 1.5rem;             /* Betűméret */
+  font-weight: 500;           /* Betűvastagság */
+  color: var(--text);           /* Szöveg színe */
+
+  max-width: 850px;      /* Szöveg maximális szélessége */
+  margin: 0 auto;        /* Középre helyezés */
+  padding-left: 1rem;    /* Némi belső tér mobilon */
+  padding-right: 1rem;
+  
+
+}
+
+/* A hero szöveg stílusai */
+.hero h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.hero .pronunciation {
+  font-style: italic; 
+  color: var(--text-muted); /* halványabb szín, ha van definiálva */
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.hero p.hero-desc {
+  margin: 0;
+}
+
+.hero blockquote {
+  border-left: 4px solid var(--secondary);
+  padding-left: 1rem;
+  margin-top: 2rem;
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+/* Sötét mód */
+body.dark-mode {
+  background-color: var(--text);
+  color: var(--background);
+}
+
+body.dark-mode .navbar {
+  background-color:var(--text);
+}
+
+body.dark-mode .navbar .logo:hover {
+  background-color: var(--text);
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+body.dark-mode .navbar .logo {
+  color: var(--background);
+  border-color: var(--background);
+}
+
+body.dark-mode #theme-toggle {
+  color: var(--background);
+}
+
+body.dark-mode #theme-toggle:hover {
+  background-color: var(--text);
+  color: var(--primary);
+  
+}
+
+body.dark-mode .nav-links a {
+  color: #e0e0e0;
+}
+
+body.dark-mode .nav-links a:hover {
+  color: var(--primary);
+}
+
+body.dark-mode .hero {
+  background-color: var(--text); /* vagy más sötét szín */
+  color: #e0e0e0;
+}
+
+body.dark-mode #theme-toggle:focus,     
+body.dark-mode #theme-toggle:active { 
+  background: none;   
+  outline: none;
+  box-shadow: none;
+}
+
+body.dark-mode .nav-links a.active {
+  border-bottom: 2px solid var(--secondary);
+}

@@ -1,0 +1,144 @@
+/* Színváltozók */
+:root {
+  --text: #0a1314;
+  --background: #faf9f6;
+  --primary: #27c5ce;
+  --secondary: #8fd7db;
+  --accent: #ffffff;
+}
+
+/* Navbar alap */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* alapból középre igazítja a tartalmat */
+  padding: 1rem 0;
+  position: relative; /* hogy a logo pozícióját kezelni tudjuk */
+  background-color: var(--background);
+}
+
+/* Logo (MATE) */
+.navbar .logo {
+  position: absolute;
+  left: min(5vw, 5rem); /* bal oldalt legyen minimum 5rem, de max 5vw távolság */
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 0.01rem; /* kis távolság az oszlopok között */
+  cursor: pointer;
+  color: var(--text);
+  font-weight: 700;
+  font-size: 1.5rem;
+  text-decoration: none;
+  
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* sima átmenet a színek között */
+  
+}
+/* Logo MATE HOVER*/
+.navbar .logo:hover {   
+  background-color: var(--background); /* élénk kék, ezt tetszés szerint módosíthatod */
+  color: var(--secondary);
+  border-color: var(--secondary);
+}
+
+.logo-column span {
+  display: block;
+  width: 1.3rem;       /* fix szélesség */
+  height: 1.4rem;      /* fix magasság, hogy a sorok is egyformák legyenek */
+  text-align: center;
+  line-height: 1.55rem; /* a szöveg függőlegesen középre igazítása */
+}
+
+.logo-column:nth-child(1) span:nth-child(2) {
+  font-size: 1.7rem; /* T */
+}
+
+.logo-column:nth-child(2) span:nth-child(2) {
+  font-size: 1.7rem; /* E */
+}
+
+
+/* Navigációs linkek */
+.navbar .nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar .nav-links a {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 600;
+  font-size: 1rem;
+  transition: color 0.2s ease;
+}
+
+.navbar .nav-links a.active {   /* Aktív link */
+  border-bottom: 2px solid var(--secondary);
+  padding-bottom: 0.2rem;
+}
+
+
+.navbar .nav-links a:hover {
+  color: var(--secondary);
+}
+
+#theme-toggle {
+  position: absolute;
+  right: min(5vw, 5rem);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3.2rem;          /* logóval megegyező méret */
+  height: 3.2rem;         /* logóval megegyező méret */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border: none;
+  color: var(--text);
+  font-size: 2rem;        /* nagyobb betűméret az ikonhoz */
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease ; /* sima átmenet a színek között */
+  outline: none;                /* figyelemkeret eltüntetése */
+  -webkit-tap-highlight-color: transparent; /* mobilon a flash eltüntetése */
+   line-height: 1;
+}
+
+#theme-toggle:hover {
+  background-color: var(--background);
+  color: var(--secondary);
+  border-color: var(--secondary); 
+}
+
+#theme-toggle:focus,
+#theme-toggle:active {
+  outline: none;
+  background: none;
+  box-shadow: none;   
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    justify-content: space-between; /* jobban illeszkedik kisebb képernyőn */
+    padding: 1rem;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 60px; /* navbar magassága */
+    left: 0;
+    right: 0;
+    background: var(--background);
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    display: none; /* alapból elrejtve mobilon */
+  }
+
+  /* Egy aktív osztály pl. JS-el nyithatóvá teszi */
+  .nav-links.active {
+    display: flex;
+  }
+}

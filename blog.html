@@ -1,36 +1,24 @@
 <!DOCTYPE html>
 <html lang="hu">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MA-TE | Blog</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mysterion</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="assets/css/header.css" />
+  <link rel="stylesheet" href="assets/css/blog.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" /> <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" /> <!-- Font Awesome -->
 </head>
 
 <body>
-  <div id="preloader" class="loader"></div>
-  <header>
-  <nav class="navbar">
-    <a href="index.html" class="logo">mystērion</a>
 
-</a>
+  <div id="preloader">Betöltés...</div> <!-- Preloader -->
 
-      <ul class="nav-links">
-        <li><a href="bemutatkozas.html">Küldetésünk</a></li>
-        <li><a href="blog.html" class="active">Blog</a></li>
-        <li><a href="#videok">Videók</a></li>
-        <li><a href="#kapcsolat">Kapcsolat</a></li>
-      </ul>
+  <div data-include="partials/header.html"></div> <!-- Header -->
 
-      <button id="theme-toggle" aria-label="Váltás világos/sötét mód között">
-        <i class="fa-solid fa-sun"></i>
-      </button>
-    </nav>
-  </header>
-
- <main>
+<main>
  
   <section class="blog-filters">
   <label for="sort">Rendezés:</label>
@@ -55,45 +43,16 @@
 
   <section class="blog-grid">
     <!-- A JavaScript majd ide tölti be a kártyákat -->
+      <article class="blog-card">
+    
+    </div>
+  </article>
+
   </section>
 </main>
 
-
-  <script src="script.js"></script>
-  <script>
-document.addEventListener("DOMContentLoaded", () => {
-  fetch("blog.json") // vagy "data/blog.json", ha mappában van
-    .then(response => response.json())
-    .then(posts => {
-      const container = document.querySelector(".blog-grid");
-      container.innerHTML = ""; // töröljük az esetleges sablont
-
-      posts.forEach(post => {
-        const card = document.createElement("article");
-        card.className = "blog-card";
-
-        card.setAttribute("data-date", post.date);
-        card.setAttribute("data-author", post.author);   // ügyelj, hogy legyen ilyen adat a JSON-ban
-        card.setAttribute("data-series", post.series);     // szintén legyen a JSON-ban
-
-        card.innerHTML = `
-  <img src="${post.img}" alt="${post.title}" loading="lazy">
-  ${post.series ? `<span class="blog-series">${post.series}</span>` : ""}
-  <h2>${post.title}</h2>
-  <time class="post-date" datetime="${post.date}">${post.date}</time>
-  <p>${post.desc}</p>
-  <a href="${post.link}">Olvasd tovább →</a>
-`;
-
-
-        container.appendChild(card);
-      });
-    })
-    .catch(error => {
-      console.error("Nem sikerült betölteni a blogokat:", error);
-    });
-});
-</script>
+  <script src="assets/js/include.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/blog.js"></script> <!-- Blog kártyák betöltése -->
 </body>
-
 </html>

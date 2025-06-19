@@ -1,0 +1,75 @@
+/* Színváltozók */
+:root {
+  --text: #0a1314;
+  --background: #faf9f6;
+  --primary: #27c5ce;
+  --secondary: #8fd7db;
+  --accent: #ffffff;
+}
+
+.article-content {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  max-width: 900px;
+  margin: 2rem auto;
+  color: var(--text);
+  line-height: 1.6;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 10px var(--secondary);
+}
+
+.article-image {
+  text-align: center;
+  margin-top: 2em;
+}
+
+.article-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+body.dark-mode .article-image img {
+  filter: invert(1);
+}
+
+body.dark-mode .article-content {
+  background-color: black;
+  color: #e0e0e0;
+  box-shadow: 0 4px 15px var(--secondary);
+}
+
+.article-image figcaption {
+  margin-top: 0.5em;
+  font-style: italic;
+  color: #666;
+  font-size: 0.95em;
+}
+
+
+.verse {
+  font-style: italic;
+  color: var(--primary); /* kék */
+  margin: 1em 0;
+  display: block;
+}
+
+blockquote {
+  margin: 1em 0;
+  padding-left: 1em;
+  border-left: 4px solid #ccc;
+  font-style: italic;
+  position: relative;
+  color: #444;
+}
+
+blockquote::before,
+blockquote::after {
+  content: '"';
+  font-style: normal;
+  color: #888;
+  font-size: 1.2em;
+  vertical-align: top;
+}
+
